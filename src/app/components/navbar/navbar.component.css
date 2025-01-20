@@ -1,0 +1,66 @@
+
+.navbar {
+    background-color: #000; 
+    color: #fff; 
+    position: fixed; 
+    top: 0; 
+    left: 200px; 
+    width: calc(100% - 200px); 
+    z-index: 1030; 
+    height: 60px; 
+    display: flex; 
+    align-items: center;
+    padding: 0 16px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+
+.navbar .welcome {
+    margin: 0; 
+    font-size: 1rem; 
+    font-weight: bold; 
+    color: #fff; 
+}
+
+/* Zone de recherche */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Bouton de recherche - Style et survol */
+.btn-outline-primary {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+
+/* Icône des notifications */
+.nav-item .bi-bell {
+    font-size: 1.2rem;
+}
+
+/* Badge des notifications */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.2em 0.4em;
+    position: relative;
+    top: -2px;
+    left: -2px;
+}
+
+/* Icône de notification - Couleur blanche */
+.nav-item .bi-bell {
+    color: #fff; 
+    font-size: 1.2rem; /
+}
+
+
+.nav-item .nav-link:hover .bi-bell {
+    color: #f0f0f0; 
+}
