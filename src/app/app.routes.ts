@@ -13,9 +13,10 @@ import { ReleveFormComponent } from './components/releve/releve-form/releve-form
 import { ReleveListComponent } from './components/releve/releve-list/releve-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'utilisateur/add', component: UtilisateurFormComponent },
   { path: 'utilisateur/list', component: UtilisateurListComponent },
@@ -26,9 +27,10 @@ export const routes: Routes = [
   { path: 'facture/list', component: FactureListComponent },
   { path: 'releve/add', component: ReleveFormComponent },
   { path: 'releve/list', component: ReleveListComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Redirection par défaut vers le Dashboard
-  { path: '**', redirectTo: 'dashboard' } // Redirection pour les routes non trouvées
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Page par défaut : Login
+  { path: '**', redirectTo: 'login' } // Redirection pour les routes non trouvées
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

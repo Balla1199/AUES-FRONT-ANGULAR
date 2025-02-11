@@ -1,1 +1,25 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="logo-section">
+      <img src="assets/Logo.png" alt="Logo" class="logo" />
+      <!-- <h1>Eau Naturelle</h1>
+      <h3>A.U.E.S</h3> -->
+    </div>
+  
+    <div class="form-section">
+      <div class="login-box">
+        <h2>Se connexion</h2>
+        <h6>Entrez votre numero et votre mot de passe pour se connecter</h6>
+  
+        <form [formGroup]="loginForm"  (ngSubmit)="onSubmit()">
+          <div  class="form-group">
+            <input type="text" class="form-control" placeholder="Numéro" formControlName="username" />
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password" />
+          </div>
+          <button type="submit" class="btn-primary" [disabled]="!loginForm.valid" >Se connecter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
