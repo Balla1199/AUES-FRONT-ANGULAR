@@ -1,1 +1,41 @@
-<p>payement-list works!</p>
+<div class="bloc">
+  <h2>Paiements enregistrés</h2>
+
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+  <div class="succes" *ngIf="succes">{{ succes }}</div>
+
+  <table *ngIf="payements.length; else aucune">
+    <tr>
+      <th>N°</th>
+      <th>Date</th>
+      <th>Montant</th>
+      <th>Mode</th>
+      <th>Payeur</th>
+      <th>Facture</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let payement of payements">
+      <td>{{ payement.id }}</td>
+      <td>{{ payement.date | date:'dd/MM/yyyy à HH:mm' }}</td>
+      <td>{{ payement.montant }} FCFA</td>
+      <td>{{ payement.mode }}</td>
+      <td>{{ payement.payeur || '—' }}</td>
+      <td>#{{ payement.idFact }}</td>
+      <td>
+        <span class="badge badge-valide" *ngIf="payement.statutPay === 'Effectuer'">Effectué</span>
+        <span class="badge badge-annule" *ngIf="payement.statutPay === 'Annule'">Annulé</span>
+      </td>
+      <td>
+        <button class="btn-annuler" *ngIf="payement.statutPay === 'Effectuer'"
+                (click)="annuler(payement)">Annuler</button>
+        <span *ngIf="payement.statutPay === 'Annule'">—</span>
+      </td>
+    </tr>
+  </table>
+
+  <ng-template #aucune>
+    <p class="vide">Aucun paiement enregistré pour le moment.</p>
+    <a class="btn-lien" routerLink="/payement/add">+ Enregistrer un paiement</a>
+  </ng-template>
+</div>

@@ -1,0 +1,71 @@
+.bloc {
+  padding: 20px;
+}
+
+h2 {
+  color: #159435;
+  margin-bottom: 16px;
+}
+
+.panneau {
+  background: white;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.champ label {
+  display: block;
+  font-size: 12px;
+  color: #61705f;
+  margin-bottom: 4px;
+}
+
+.champ input,
+.champ select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c3d0c3;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.btn-principal {
+  background: #159435;
+  color: white;
+  border: none;
+  padding: 9px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.lien-retour {
+  color: #159435;
+  font-size: 13px;
+}
+
+.erreur {
+  background: #fde4d0;
+  color: #8a2b00;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.succes {
+  background: #d7ecd7;
+  color: #1b5e20;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}

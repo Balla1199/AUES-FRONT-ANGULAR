@@ -1,1 +1,24 @@
-<p>utilisateur-list works!</p>
+<div class="bloc">
+  <h2>Utilisateurs</h2>
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+
+  <table *ngIf="utilisateurs.length; else aucun">
+    <tr>
+      <th>Nom</th>
+      <th>Téléphone</th>
+      <th>Adresse</th>
+      <th>Rôle</th>
+    </tr>
+    <tr *ngFor="let utilisateur of utilisateurs">
+      <td>{{ utilisateur.nom }}</td>
+      <td>{{ utilisateur.telephone }}</td>
+      <td>{{ utilisateur.adresse }}</td>
+      <td>{{ utilisateur.role }}</td>
+    </tr>
+  </table>
+
+  <ng-template #aucun>
+    <p class="vide">Aucun utilisateur enregistré pour le moment.</p>
+  </ng-template>
+  <a class="btn-lien" routerLink="/utilisateur/add">+ Inscrire un utilisateur</a>
+</div>

@@ -1,1 +1,39 @@
-<p>payement-form works!</p>
+<div class="bloc">
+  <h2>Enregistrer un paiement</h2>
+
+  <div class="erreur" *ngIf="erreurs.length">
+    <div *ngFor="let erreur of erreurs">{{ erreur }}</div>
+  </div>
+  <div class="succes" *ngIf="succes">{{ succes }}</div>
+
+  <form class="panneau" [formGroup]="payementForm" (ngSubmit)="enregistrer()">
+    <div class="champ">
+      <label>Facture (impayée)</label>
+      <select formControlName="idFact">
+        <option value="" disabled>Choisir la facture…</option>
+        <option *ngFor="let facture of facturesImpayees" [value]="facture.id">
+          {{ facture.numero }} — reste {{ facture.montant - facture.montantPaye }} FCFA
+        </option>
+      </select>
+    </div>
+    <div class="champ">
+      <label>Montant (FCFA)</label>
+      <input type="number" formControlName="montant" min="1" step="0.01" />
+    </div>
+    <div class="champ">
+      <label>Mode de paiement</label>
+      <select formControlName="mode">
+        <option value="" disabled>Choisir le mode…</option>
+        <option *ngFor="let mode of modes" [value]="mode">{{ mode }}</option>
+      </select>
+    </div>
+    <div class="champ">
+      <label>Payeur (facultatif)</label>
+      <input type="text" formControlName="payeur" placeholder="Nom du payeur" />
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn-principal">Enregistrer</button>
+      <a class="lien-retour" routerLink="/payement/list">Voir les paiements</a>
+    </div>
+  </form>
+</div>

@@ -1,1 +1,36 @@
-<p>utilisateur-form works!</p>
+<div class="bloc">
+  <h2>Inscrire un utilisateur</h2>
+
+  <div class="erreur" *ngIf="erreurs">{{ erreurs }}</div>
+  <div class="succes" *ngIf="succes">{{ succes }}</div>
+
+  <form class="panneau" [formGroup]="utilisateurForm" (ngSubmit)="enregistrer()">
+    <div class="champ">
+      <label>Nom</label>
+      <input type="text" formControlName="nom" />
+    </div>
+    <div class="champ">
+      <label>Adresse</label>
+      <input type="text" formControlName="adresse" />
+    </div>
+    <div class="champ">
+      <label>Numéro de téléphone (identifiant de connexion)</label>
+      <input type="text" formControlName="telephone" placeholder="ex. 0123456789" />
+    </div>
+    <div class="champ">
+      <label>Mot de passe</label>
+      <input type="password" formControlName="password" />
+    </div>
+    <div class="champ">
+      <label>Rôle</label>
+      <select formControlName="role">
+        <option value="CLIENT">CLIENT</option>
+        <option value="ADMINISTRATEUR">ADMINISTRATEUR</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn-principal">Inscrire</button>
+      <a class="lien-retour" routerLink="/utilisateur/list">Voir les utilisateurs</a>
+    </div>
+  </form>
+</div>

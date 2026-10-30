@@ -1,1 +1,22 @@
-<p>compteur-list works!</p>
+<div class="bloc">
+  <h2>Compteurs</h2>
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+
+  <table *ngIf="compteurs.length; else aucun">
+    <tr>
+      <th>N° compteur</th>
+      <th>Valeur actuelle</th>
+      <th>Statut</th>
+    </tr>
+    <tr *ngFor="let compteur of compteurs">
+      <td>{{ compteur.code }}</td>
+      <td>{{ valeurActuelle(compteur) }}</td>
+      <td>{{ compteur.statut }}</td>
+    </tr>
+  </table>
+
+  <ng-template #aucun>
+    <p class="vide">Aucun compteur enregistré pour le moment.</p>
+  </ng-template>
+  <a class="btn-lien" routerLink="/compteur/add">+ Ajouter un compteur</a>
+</div>

@@ -1,0 +1,82 @@
+.bloc {
+  padding: 20px;
+}
+
+h2 {
+  color: #159435;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+th {
+  background: #159435;
+  color: white;
+  text-align: left;
+  padding: 9px 12px;
+  font-size: 13px;
+}
+
+td {
+  padding: 8px 12px;
+  border-top: 1px solid #e5e9e6;
+  font-size: 13px;
+}
+
+.numero {
+  font-weight: bold;
+  color: #333;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.badge-payee {
+  background: #d7ecd7;
+  color: #1b5e20;
+}
+
+.badge-impayee {
+  background: #fde4d0;
+  color: #b34a00;
+}
+
+.btn-payer {
+  background: #159435;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.btn-lien {
+  display: inline-block;
+  background: #159435;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.erreur {
+  background: #fde4d0;
+  color: #8a2b00;
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.vide {
+  color: #61705f;
+}

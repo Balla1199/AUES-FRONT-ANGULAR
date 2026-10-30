@@ -1,1 +1,52 @@
-<p>dashboard works!</p>
+<div class="bloc-dashboard">
+  <h2>Tableau de bord</h2>
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+
+  <div class="grille-cartes" *ngIf="stats">
+    <div class="carte">
+      <div class="valeur">{{ stats.nbCompteurs }}</div>
+      <div class="libelle">Compteurs enregistrés</div>
+    </div>
+    <div class="carte">
+      <div class="valeur">{{ stats.uniteConsommees }} m³</div>
+      <div class="libelle">Unités d'eau consommées</div>
+    </div>
+    <div class="carte">
+      <div class="valeur">{{ enFrancs(stats.recettesTotales) }}</div>
+      <div class="libelle">Recettes encaissées</div>
+    </div>
+    <div class="carte">
+      <div class="valeur">{{ enFrancs(stats.montantImpaye) }}</div>
+      <div class="libelle">Montant impayé</div>
+    </div>
+    <div class="carte">
+      <div class="valeur">{{ stats.tauxRecouvrement }} %</div>
+      <div class="libelle">Taux de recouvrement</div>
+    </div>
+  </div>
+
+  <div class="double-colonne" *ngIf="stats">
+    <div class="panneau">
+      <h3>Recettes par mois</h3>
+      <table *ngIf="entrees(stats.recettesParMois).length; else vide1">
+        <tr><th>Mois</th><th>Recettes (FCFA)</th></tr>
+        <tr *ngFor="let entree of entrees(stats.recettesParMois)">
+          <td>{{ entree[0] }}</td>
+          <td>{{ entree[1] | number:'1.2-2' }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="panneau">
+      <h3>Consommation par mois</h3>
+      <table *ngIf="entrees(stats.consommationParMois).length; else vide2">
+        <tr><th>Mois</th><th>Consommation (m³)</th></tr>
+        <tr *ngFor="let entree of entrees(stats.consommationParMois)">
+          <td>{{ entree[0] }}</td>
+          <td>{{ entree[1] | number:'1.2-2' }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <ng-template #vide1><p class="vide">Aucun paiement enregistré pour le moment.</p></ng-template>
+  <ng-template #vide2><p class="vide">Aucun relevé enregistré pour le moment.</p></ng-template>
+</div>

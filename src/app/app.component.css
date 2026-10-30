@@ -1,0 +1,14 @@
+.complet {
+  display: flex;
+}
+
+.zone-ahou {
+  margin-left: 200px;
+  width: calc(100% - 200px);
+}
+
+.router-zone {
+  padding-top: 60px;
+  min-height: 100vh;
+  background: #eaf1f1;
+}

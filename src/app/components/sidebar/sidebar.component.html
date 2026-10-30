@@ -3,7 +3,7 @@
     <div class="text-center p-3">
       <img src="assets/Logo1.png" alt="Logo" class="img-fluid" style="max-height: 80px;">
     </div>
-  
+
     <!-- Navigation Links -->
     <ul class="nav flex-column">
       <li class="nav-item">
@@ -22,15 +22,24 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="/releve/list" routerLinkActive="active">
+          <i class="bi bi-journal-text"></i> Relevés
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/facture/list" routerLinkActive="active">
+          <i class="bi bi-receipt"></i> Factures
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" routerLink="/payement/list" routerLinkActive="active">
           <i class="bi bi-credit-card"></i> Paiements
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-danger" routerLink="/login">
+        <a class="nav-link text-danger" (click)="seDeconnecter()">
           <i class="bi bi-box-arrow-right"></i> Se Déconnecter
         </a>
       </li>
     </ul>
   </nav>
-  

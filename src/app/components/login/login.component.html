@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="login-container">
+  <div class="logo-section">
+    <img src="assets/Logo.png" alt="Logo" class="logo" />
+  </div>
+
+  <div class="form-section">
+    <div class="login-box">
+      <h2>Se connecter</h2>
+      <h6>Entrez votre numéro et votre mot de passe pour vous connecter</h6>
+
+      <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Numéro" formControlName="telephone" />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Mot de passe" formControlName="password" />
+        </div>
+        <button type="submit" class="btn-primary" [disabled]="enCours">
+          {{ enCours ? 'Connexion…' : 'Se connecter' }}
+        </button>
+        <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+        <div class="infop" *ngIf="!erreur">
+          <small> Essais : 0123456789 / admin123 </small>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

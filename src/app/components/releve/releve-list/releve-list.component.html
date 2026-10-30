@@ -1,1 +1,26 @@
-<p>releve-list works!</p>
+<div class="bloc">
+  <h2>Relevés de compteurs</h2>
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+
+  <table *ngIf="releves.length; else aucun">
+    <tr>
+      <th>N° relevé</th>
+      <th>Date</th>
+      <th>Valeur relevée</th>
+      <th>Unités consommées</th>
+      <th>Tarif</th>
+    </tr>
+    <tr *ngFor="let releve of releves">
+      <td>{{ releve.id }}</td>
+      <td>{{ releve.date | date:'dd/MM/yyyy HH:mm' }}</td>
+      <td>{{ releve.valLorsRelev }}</td>
+      <td>{{ releve.unite_consomme }} m³</td>
+      <td>{{ releve.tarif }} FCFA/m³</td>
+    </tr>
+  </table>
+
+  <ng-template #aucun>
+    <p class="vide">Aucun relevé enregistré pour le moment. Un relevé génère automatiquement sa facture.</p>
+  </ng-template>
+  <a class="btn-lien" routerLink="/releve/add">+ Ajouter un relevé</a>
+</div>

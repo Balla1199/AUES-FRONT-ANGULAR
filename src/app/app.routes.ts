@@ -15,8 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 export const routes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'utilisateur/add', component: UtilisateurFormComponent },
   { path: 'utilisateur/list', component: UtilisateurListComponent },
   { path: 'compteur/add', component: CompteurFormComponent },
@@ -26,8 +26,8 @@ export const routes: Routes = [
   { path: 'facture/list', component: FactureListComponent },
   { path: 'releve/add', component: ReleveFormComponent },
   { path: 'releve/list', component: ReleveListComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, // Redirection par défaut vers le Dashboard
-  { path: '**', redirectTo: 'dashboard' } // Redirection pour les routes non trouvées
+  { path: '', redirectTo: 'login', pathMatch: 'full' }, // Page par défaut : Login
+  { path: '**', redirectTo: 'login' } // Redirection pour les routes non trouvées
 ];
 
 @NgModule({

@@ -1,1 +1,40 @@
-<p>facture-list works!</p>
+<div class="bloc">
+  <h2>Factures</h2>
+  <div class="erreur" *ngIf="erreur">{{ erreur }}</div>
+
+  <table *ngIf="factures.length; else aucune">
+    <tr>
+      <th>N° facture</th>
+      <th>Compteur</th>
+      <th>Émission</th>
+      <th>Échéance</th>
+      <th>Montant</th>
+      <th>Payé</th>
+      <th>Reste</th>
+      <th>Statut</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let facture of factures">
+      <td><span class="numero">{{ facture.numero }}</span></td>
+      <td>{{ facture.numeroCompteur }}</td>
+      <td>{{ facture.dateTrs | date:'dd/MM/yyyy' }}</td>
+      <td>{{ facture.dateEcheance }}</td>
+      <td>{{ enFrancs(facture.montant) }}</td>
+      <td>{{ enFrancs(facture.montantPaye) }}</td>
+      <td>{{ enFrancs(reste(facture)) }}</td>
+      <td>
+        <span class="badge badge-payee" *ngIf="facture.statut === 'Payee'">Payée</span>
+        <span class="badge badge-impayee" *ngIf="facture.statut === 'Impayee'">Impayée</span>
+      </td>
+      <td *ngIf="facture.statut === 'Impayee'">
+        <a class="btn-payer" [routerLink]="['/payement/add']" [queryParams]="{ facture: facture.id }"> payer </a>
+      </td>
+      <td *ngIf="facture.statut === 'Payee'">—</td>
+    </tr>
+  </table>
+
+  <ng-template #aucune>
+    <p class="vide">Aucune facture pour le moment. Ajoutez d'abord un relevé de compteur.</p>
+    <a class="btn-lien" routerLink="/releve/add">+ Ajouter un relevé</a>
+  </ng-template>
+</div>

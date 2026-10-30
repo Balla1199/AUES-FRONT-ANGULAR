@@ -1,1 +1,32 @@
-<p>releve-form works!</p>
+<div class="bloc">
+  <h2>Ajouter un relevé</h2>
+
+  <div class="erreur" *ngIf="erreurs.length">
+    <div *ngFor="let erreur of erreurs">{{ erreur }}</div>
+  </div>
+  <div class="succes" *ngIf="succes">{{ succes }}</div>
+
+  <form class="panneau" [formGroup]="releveForm" (ngSubmit)="enregistrer()">
+    <div class="champ">
+      <label>Compteur</label>
+      <select formControlName="numero_compteur">
+        <option value="" disabled>Choisir le compteur…</option>
+        <option *ngFor="let compteur of compteurs" [value]="compteur.code">
+          {{ compteur.code }} — valeur actuelle {{ compteur.valeur }}
+        </option>
+      </select>
+    </div>
+    <div class="champ">
+      <label>Valeur relevée (supérieure à la valeur actuelle)</label>
+      <input type="number" formControlName="valLorsRelev" min="0" step="0.1" />
+    </div>
+    <div class="champ">
+      <label>Tarif (FCFA / m³)</label>
+      <input type="number" formControlName="tarif" min="0" step="0.1" />
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn-principal">Enregistrer le relevé</button>
+      <a class="lien-retour" routerLink="/facture/list">Voir les factures</a>
+    </div>
+  </form>
+</div>

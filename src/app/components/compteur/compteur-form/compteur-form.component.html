@@ -1,1 +1,28 @@
-<p>compteur-form works!</p>
+<div class="bloc">
+  <h2>Ajouter un compteur</h2>
+
+  <div class="erreur" *ngIf="erreurs">{{ erreurs }}</div>
+  <div class="succes" *ngIf="succes">{{ succes }}</div>
+
+  <form class="panneau" [formGroup]="compteurForm" (ngSubmit)="enregistrer()">
+    <div class="champ">
+      <label>Numéro du compteur (code)</label>
+      <input type="text" formControlName="code" placeholder="ex. 125" />
+    </div>
+    <div class="champ">
+      <label>Valeur initiale</label>
+      <input type="number" formControlName="cpteurChiffre" min="0" />
+    </div>
+    <div class="champ">
+      <label>Statut</label>
+      <select formControlName="statut">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn-principal">Enregistrer</button>
+      <a class="lien-retour" routerLink="/compteur/list">Voir les compteurs</a>
+    </div>
+  </form>
+</div>

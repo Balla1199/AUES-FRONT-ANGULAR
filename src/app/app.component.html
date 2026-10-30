@@ -1,7 +1,14 @@
-<div class="app-container">
-  <app-navbar></app-navbar> 
-  <app-sidebar></app-sidebar>
-  <div class="content">
-    <router-outlet></router-outlet>
+<div class="app-container" [class.login-mode]="surLogin">
+
+  <div class="complet" *ngIf="!surLogin">
+    <app-sidebar></app-sidebar>
+    <div class="zone-ahou">
+      <app-navbar></app-navbar>
+      <div class="router-zone">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
   </div>
+
+  <router-outlet *ngIf="surLogin"></router-outlet>
 </div>
